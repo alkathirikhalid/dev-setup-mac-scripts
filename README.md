@@ -6,7 +6,7 @@ Automate your macOS development environment setup and reporting
 - Customize the `Brewfile` to suit your needs before running.
 - Schedule `report.sh` via cron to maintain up-to-date audits.
 
-dev-setup-mac-scripts/
+<pre>dev-setup-mac-scripts/
 │
 ├── Brewfile                 # Declarative list of all apps, CLI tools, casks, and Mac App Store apps
 ├── setup.sh                 # Main bootstrap script (installs Homebrew, uses Brewfile, sets up paths and generates initial report)
@@ -14,7 +14,7 @@ dev-setup-mac-scripts/
 ├── .zprofile                # Custom PATH and ENV setup (e.g., JAVA_HOME, brew paths)
 ├── README.md                # Clear instructions on usage and purpose
 └── reports/
-    └── mac-installed-software.md   # Automatically generated software report
+    └── mac-installed-software.md   # Automatically generated software report</pre>
 
 
 # 🛠️ Mac Setup Automation
