@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# report.sh
+# report.sh - Generate a detailed software report for macOS
+
 OUTPUT="mac-installed-software.md"
 DATE=$(date)
 
@@ -38,14 +39,13 @@ echo "" >> "$OUTPUT"
 
 echo "## 🔧 Homebrew Package Versions" >> "$OUTPUT"
 for pkg in $(brew list); do
-    echo "$pkg: $(brew info $pkg | grep 'installed' | head -1 | awk '{print $3}')" >> "$OUTPUT"
+    version=$(brew info "$pkg" | grep -m 1 'installed' | awk '{print $3}')
+    echo "$pkg: $version" >> "$OUTPUT"
 done
 echo "" >> "$OUTPUT"
 
 echo "## 🧳 Homebrew Cask Application Versions" >> "$OUTPUT"
-for cask in $(brew list --cask); do
-    echo "$cask: $(brew info $cask | grep 'installed' | head -1 | awk '{print $3}')" >> "$OUTPUT"
-done
+brew list --cask --versions >> "$OUTPUT"
 echo "" >> "$OUTPUT"
 
 echo "✅ Report saved to: $OUTPUT"
