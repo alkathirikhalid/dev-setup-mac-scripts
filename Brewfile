@@ -1,0 +1,17 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+
+brew "git"
+brew "openjdk"
+brew "node"
+brew "python"
+brew "mas"
+brew "wget"
+brew "zsh"
+brew "zsh-completions"
+
+cask "android-studio"
+cask "intellij-idea-ce"
+cask "visual-studio-code"
+cask "google-chrome"
