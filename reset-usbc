@@ -1,0 +1,4 @@
+#!/bin/bash
+sudo killall -STOP -c usbd
+sudo killall -CONT usbd
+echo "USB stack reset. Try reconnecting your device."
