@@ -4,17 +4,17 @@ Automate your macOS development environment setup and reporting
 ## 🧠 Pro Tips
 
 - Customize the `Brewfile` to suit your needs before running.
-- Schedule `report.sh` via cron to maintain up-to-date audits.
+- Schedule `report` via cron to maintain up-to-date audits.
 
 <pre>dev-setup-mac-scripts/
 │
 ├── Brewfile                 # Declarative list of all apps, CLI tools, casks, and Mac App Store apps
-├── setup.sh                 # Main bootstrap script (installs Homebrew, uses Brewfile, sets up paths and generates initial report)
-├── report.sh                # Optional script to generate a markdown report of installed tools, can be rerun to check current development setup
+├── setup                    # Main bootstrap script (installs Homebrew, uses Brewfile, sets up paths and generates initial report)
+├── report                   # Optional script to generate a markdown report of installed tools, can be rerun to check current development setup
 ├── .zprofile                # Custom PATH and ENV setup (e.g., JAVA_HOME, brew paths)
 ├── README.md                # Clear instructions on usage and purpose
 └── reports/
-    └── mac-installed-software.md   # Automatically generated software report</pre>
+    └── mac-installed-software.md   # Automatically generated software report in same folder via CLI or in home folder via double click to run</pre>
 
 
 # 🛠️ Mac Setup Automation
@@ -23,9 +23,9 @@ This project automates the installation and configuration of essential developme
 
 ## 📁 Contents
 
-- `setup.sh` – Installs Homebrew (if not already installed), taps into required repositories, installs packages from `Brewfile`, sets up Java paths, and runs the report generator.
+- `setup` – Installs Homebrew (if not already installed), taps into required repositories, installs packages from `Brewfile`, sets up Java paths, and runs the report generator.
 - `Brewfile` – Lists all Homebrew, Cask, and Mac App Store apps to be installed.
-- `report.sh` – Generates a detailed report of installed software, packages, and versions into `mac-installed-software.md`.
+- `report` – Generates a detailed report of installed software, packages, and versions into `mac-installed-software.md`.
 - `.zprofile` – Configures environment variables such as `JAVA_HOME` and ensures brew paths are set correctly.
 
 ---
@@ -42,7 +42,7 @@ cd mac-setup
 ### 2. Make scripts executable
 
 ```bash
-chmod +x setup.sh report.sh
+chmod +x setup report
 ```
 
 ### 3. Run the setup script
@@ -55,16 +55,17 @@ This will:
 - Generate the software report, including details about outdated packages and installed versions
 
 ```bash
-./setup.sh
+./setup
 ```
 
 ### 4. Generate report only (optional)
 
-To regenerate the report at any time (e.g., check if software is outdated):
+To regenerate the report at any time (e.g., check if software is outdated) via CLI:
 
 ```bash
-./report.sh
+./report
 ```
+or double click it to run.
 
 ---
 
@@ -76,7 +77,7 @@ To regenerate the report at any time (e.g., check if software is outdated):
 
 ### 📊 Software Versioning and Updates
 
-- After the `setup.sh` script runs, the software report (`mac-installed-software.md`) will list the installed software along with their versions.
+- After the `setup` script runs, the software report (`mac-installed-software.md`) will list the installed software along with their versions.
 - The report will also indicate if any of the installed software is outdated by using the `brew outdated` command.
 
 ---
@@ -130,6 +131,6 @@ The `mac-installed-software.md` report will look something like this:
 ### Final Notes
 
 - Feel free to modify the `Brewfile` to suit your personal or project-specific needs before running the setup.
-- If you prefer only generating the software report without reinstalling or configuring anything, you can simply run the `report.sh` script.
+- If you prefer only generating the software report without reinstalling or configuring anything, you can simply run the `report` script.
 
 ---
